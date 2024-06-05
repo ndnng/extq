@@ -2,6 +2,8 @@
 Overview
 ========
 
+Modified from https://github.com/chatipat/extq
+
 .. start-badges
 
 .. list-table::
