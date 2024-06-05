@@ -12,7 +12,7 @@ __all__ = [
 
 
 def whiten(trajs, weights=None, rtol=None, with_mean=True, with_std=True):
-    """Whiten the data using PCA.
+    """Whiten the data using PCA. --> ortho-normalization
 
     Parameters
     ----------

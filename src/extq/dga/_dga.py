@@ -128,7 +128,7 @@ def forward_mfpt(basis, weights, in_domain, guess, lag, test_basis=None):
     basis : list of (n_frames[i], n_basis) ndarray or sparse matrix of float
         Basis for estimating the mean first passage time. Must be zero
         outside of the domain.
-    weights : list of (n_frames[i],) ndarray of float
+    weights : weight of the whole traj for each frame, list of (n_frames[i],) ndarray of float
         Change of measure to the invariant distribution for each frame.
     in_domain : list of (n_frames[i],) ndarray of bool
         Whether each frame of the trajectories is in the domain.
@@ -160,7 +160,6 @@ def forward_mfpt(basis, weights, in_domain, guess, lag, test_basis=None):
         test_basis=test_basis,
     )
 
-
 def forward_feynman_kac(
     basis, weights, in_domain, function, guess, lag, test_basis=None
 ):
@@ -175,7 +174,7 @@ def forward_feynman_kac(
         Change of measure to the invariant distribution for each frame.
     in_domain : list of (n_frames[i],) ndarray of bool
         Whether each frame of the trajectories is in the domain.
-    function : list of (n_frames[i]-1,) ndarray of float
+    function : function a broadcasted = 1 the amount of time from 0 to s for mfpt; list of (n_frames[i]-1,) ndarray of float
         Function to integrate. Note that is defined over transitions,
         not frames.
     guess : list of (n_frames[i],) ndarray of float
